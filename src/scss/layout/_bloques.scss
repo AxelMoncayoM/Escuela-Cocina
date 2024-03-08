@@ -1,0 +1,77 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.bloques {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(1, 1fr);
+  margin-top: 5rem;
+
+  @include m.tablet {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+  }
+
+  .bloque {
+    height: 40rem;
+    color: v.$blanco;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 3rem;
+
+    &:nth-child(1) {
+      background-color: v.$principal;
+    }
+    &:nth-child(2) {
+      background-image: url(../img/bloque_1.jpg);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: cover;
+    }
+    &:nth-child(3) {
+      background-image: url(../img/bloque_2.jpg);
+      background-repeat: no-repeat;
+      background-position: 50%;
+      background-size: cover;
+      grid-row: 4 / 5;
+
+      @include m.tablet {
+        grid-row: unset;
+      }
+    }
+    &:nth-child(4) {
+      background-color: v.$secundario;
+    }
+
+    &__contenido {
+      padding: 2rem;
+
+      &::before {
+        content: "";
+        height: 1.5px;
+        display: block;
+        width: 100%;
+        background-color: v.$blanco;
+      }
+      &::after {
+        content: "";
+        height: 1.5px;
+        display: block;
+        width: 100%;
+        background-color: v.$blanco;
+      }
+    }
+
+    &__heading {
+      font-size: 3.6rem;
+      text-transform: uppercase;
+    }
+
+    &__texto {
+      font-size: 2rem;
+    }
+  }
+}
