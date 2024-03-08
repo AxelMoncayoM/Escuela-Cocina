@@ -1,0 +1,33 @@
+@use "base/variables" as v;
+@use "base/mixins" as m;
+
+.nosotros {
+  margin-top: 5rem;
+  &__heading {
+    text-align: center;
+  }
+
+  &__imagen {
+    margin: 0 auto;
+    margin-bottom: 5rem;
+  }
+
+  &__grid {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+
+    @include m.tablet {
+      flex-direction: row;
+    }
+  }
+
+  &__bloque--imagen {
+    margin: 0 auto;
+  }
+
+  &__bloque--heading,
+  &__bloque--texto {
+    text-align: center;
+  }
+}
